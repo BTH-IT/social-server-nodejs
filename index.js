@@ -43,3 +43,7 @@ app.use("/upload", UploadRoute);
 app.use("/story", StoryRoute);
 app.use("/chat", ChatRoute);
 app.use("/message", MessageRoute);
+
+app.listen(process.env.PORT, () =>
+  console.log(`Listening PORT: ${process.env.PORT}`)
+);
