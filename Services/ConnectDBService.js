@@ -5,13 +5,10 @@ dotenv.config();
 
 async function connectDatabase() {
   try {
-    await mongoose.connect(
-      `mongodb://localhost:${process.env.PORT_DB}/${process.env.MONGO_NAME}`,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("connect database successfully");
   } catch (error) {
     console.log("connect database failure ", error);
