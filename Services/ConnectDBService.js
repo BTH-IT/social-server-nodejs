@@ -5,13 +5,10 @@ dotenv.config();
 
 async function connectDatabase() {
   try {
-    await mongoose.connect(
-      "mongodb+srv://hung:hung123@cluster0.bm5emny.mongodb.net/?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("connect database successfully");
   } catch (error) {
     console.log("connect database failure ", error);
